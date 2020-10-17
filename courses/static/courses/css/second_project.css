@@ -1,0 +1,44 @@
+body{
+    font-family: 'Tunga','serif';
+}
+.height{
+    min-height: 100vh;
+}
+.title-underline{
+    width:200px;
+    height:10px;
+    margin: 0 auto;
+}
+
+.height-80{
+    min-height: 100vh;
+}
+.about-picture{
+    background: url(../img/img2.jpg);
+    /*to make the image have parallex effect*/
+    background-attachment:fixed;
+    /*this means that the image should not repeat itself if the image is small so i am preventing*/
+    background-repeat: no-repeat;
+    /*the image would be in the center*/
+    background-position: center;
+    /*this way i want the image to zoom in when i am using a small screen*/
+    background-size: cover;
+
+    /*But there is another shortcut to do all this*/
+    /*this way you just have put what you want instead of using name and what you want */
+  /*  background: url('../img/img2.jpg')center/cover no-repeat fixed;*/
+
+}
+#filler{
+    min-height: 100vh;
+    /*this is for the overlay dark colr for the back ground*/
+    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,.5)),
+    url(../img/img2.jpg)center/cover no-repeat fixed;
+}
+
+#progress{
+    min-height: 80vh;
+    /*this is for the overlay dark color for the back ground*/
+    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,.5)),
+    url(../img/img2.jpg)center/cover no-repeat fixed;
+}

@@ -1,0 +1,55 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>video service</title>
+
+  <!-- Bootstrap core CSS -->
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'courses/css/bootstrap.min.css' %}" rel="stylesheet">
+
+</head>
+<body>
+
+
+{% include 'courses/messages.html' %}
+
+
+    <div class="breadcrumb">
+        <li><a href="/"></a></li>
+        <li><a href="/profile">Profile</a> </li>
+        {% block post_detail_link %}
+        {% endblock %}
+        {% if objects is not None %}
+        <li class="pull-right"><a href="/register">Register</a></li>
+        <li class="pull-right"><a href="/login">login</a></li>
+        {% else %}
+        <li class="pull-right"><a href="/membership">Membership</a></li>
+
+        {% endif %}
+
+    </div>
+</div>
+
+{% block content %}
+{% endblock content %}
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'courses/js/bootstrap.bundle.min.js' %}"></script>
+
+  <script src="{% static 'courses/js/jquery-3.4.1.min.js' %}"></script>
+</body>
+</html>

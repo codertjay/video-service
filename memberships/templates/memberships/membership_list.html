@@ -1,0 +1,55 @@
+{% extends 'courses/base.html' %}
+
+{% block content %}
+<div class="container">
+<h1> select a membership</h1>
+<div class="row">
+
+
+    {% for object in object_list %}
+
+        <div class="col-sm-4 col-md-4">
+            <h2>{{ object.membership_type }}<br></h2>
+        <p>price: ${{ object.monthly_price }}<small>/month</small></p>
+        <h4>Included Courses</h4>
+
+
+        {% comment %}in here i am looping over the courses because the courses is connected to the membership
+        through the foreign key on  courses.model.course {% endcomment %}
+        {% for course in object.course_set.all %}
+            <ul>
+        <li>{{ course.title }}</li>
+          </ul>
+        {% endfor %}
+        {% comment %} end of the course title{% endcomment %}
+
+
+        {% comment %} here i check if the {% endcomment %}
+        {% if object.membership_type != 'Free' %}
+            <form action="{% url 'memberships:select' %}" method="POST">
+                {% csrf_token %}
+
+            {% if object.membership_type != current_membership_type %}
+              {% comment %}this button will only show for the membership type the user does not have the user current plan it can
+              either Professional or Enterprise or both {% endcomment %}
+                <button type="submit" class="btn btn-warning text-white ">Select</button>
+
+            {% else %}
+                <small>This is your current membership</small>
+            {% endif %}
+
+            {% comment %} this is an hidden input in which i gave a value of the current membership in the form {% endcomment %}
+                <input type="hidden" name="membership_type" value="{{ object.membership_type }}">
+            </form>
+        {% endif %}
+
+        </div>
+
+    {% endfor %}
+    
+</div>
+</div>
+    
+    
+    
+{% endblock content %}

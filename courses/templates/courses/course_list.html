@@ -1,0 +1,11 @@
+{% extends 'courses/base.html' %}
+
+{% block content %}
+    <h1>Course List View Page</h1>
+{% for object in course %}
+    <p><a href="{% url 'courses:list' object.slug %}">{{ object }}</a></p>
+
+{% endfor %}
+
+
+{% endblock content %}

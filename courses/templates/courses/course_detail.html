@@ -1,0 +1,11 @@
+{% extends 'courses/base.html' %}
+
+{% block content %}
+<p><h1>{{ object }}</h1>
+
+{% for lesson in object.lessons  %}
+    <p><a href="{% url 'courses:lesson_detail' course_slug lesson_slug %}">{{ lesson.title }}</a></p>
+
+{% endfor %}
+
+{% endblock content %}
